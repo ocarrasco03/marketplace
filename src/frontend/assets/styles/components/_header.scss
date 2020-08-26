@@ -1,0 +1,21 @@
+header {
+  color: $primary;
+  &.header {
+    background: linear-gradient(to top, $grey-600 46%, $black) !important;
+    min-height: 129px;
+    padding: 30px 0 0;
+  }
+  nav {
+    color: $black;
+    background-color: $primary;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.5);
+    .ecatalog-menu {
+      padding: 17px 10px;
+      background-color: $grey-200;
+      width: 282px;
+      font-weight: 700;
+    }
+  }
+}
