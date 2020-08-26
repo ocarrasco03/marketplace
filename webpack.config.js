@@ -1,12 +1,20 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+require('dotenv').config();
+
+const isDev = (process.env.ENV === 'development');
+const entry = ['./src/frontend/index.js'];
+
+if (isDev) entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true');
+
 module.exports = {
-  entry: './src/frontend/index.js',
+  entry,
+  mode: isDev ? 'development' : 'production',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'src/server/public'),
+    filename: 'assets/js/app.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -38,15 +46,23 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|svg|jpe?g|gif|ico)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/images/[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    }),
+    isDev ? new webpack.HotModuleReplacementPlugin() : () => {},
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].min.css',
+      filename: 'assets/css/app.min.css',
     }),
   ],
 };

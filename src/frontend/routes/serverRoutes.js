@@ -1,63 +1,37 @@
+import Home from '../containers/Home';
+import AvisoPrivacidad from '../containers/AvisoPrivacidad';
+import Terms from '../containers/Terms';
+
 const routes = [
   {
     path: '/',
     exact: true,
     component: Home,
   },
+  // {
+  //   path: '/signin',
+  //   exact: true,
+  //   component: SignIn,
+  // },
+  // {
+  //   path: '/signup',
+  //   exact: true,
+  //   component: SignUp,
+  // },
   {
-    path: '/signin',
+    path: '/aviso-de-privacidad',
     exact: true,
-    component: SignIn,
+    component: AvisoPrivacidad,
   },
   {
-    path: '/signup',
+    path: '/terminos-y-condiciones',
     exact: true,
-    component: SignUp,
+    component: Terms,
   },
-  {
-    path: '/',
-    exact: true,
-    component: Home,
-  },
-  {
-    path: '/',
-    exact: true,
-    component: Home,
-  },
-  {
-    path: '/',
-    exact: true,
-    component: Home,
-  },
-  {
-    path: '/admin',
-    exact: true,
-    component: AdminDashboard,
-  },
-  {
-    path: '/admin/signin',
-    exact: true,
-    component: AdminSignIn,
-  },
-  {
-    path: '/admin/analytics',
-    exact: true,
-    component: AdminAnalytics,
-  },
-  {
-    path: '/admin',
-    exact: true,
-    component: AdminDashboard,
-  },
-  {
-    path: '/admin',
-    exact: true,
-    component: AdminDashboard,
-  },
-  {
-    name: 'NotFound',
-    component: NotFound,
-  },
+  // {
+  //   name: 'NotFound',
+  //   component: NotFound,
+  // },
 ];
 
 export default routes;
